@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 228, 225;
+  --background-end-rgb: 255, 240, 245;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFE4E1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B76E73;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C21E56;
+}
+
+/* Heart animation */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.floating-heart {
+  position: fixed;
+  color: #FFB6C1;
+  font-size: 24px;
+  pointer-events: none;
+  animation: float-up 10s linear infinite;
+  z-index: 0;
+}
+
+/* Glow effect */
+.glow {
+  text-shadow: 0 0 10px rgba(183, 110, 115, 0.5),
+               0 0 20px rgba(183, 110, 115, 0.3),
+               0 0 30px rgba(183, 110, 115, 0.2);
+}
+
+/* Image hover */
+.image-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(183, 110, 115, 0.4);
+}

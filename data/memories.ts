@@ -12,147 +12,92 @@ export interface TimelineEvent {
   title: string;
   description: string;
   icon: string;
+  image: string;
 }
 
 export const photos: Photo[] = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1529634828328-6b5e3b3c6e5e?w=800&q=80",
-    alt: "First date",
-    caption: "Our First Date 💕",
+    src: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&q=80",
+    alt: "Eiffel Tower Date",
+    caption: "A Night to Remember in Paris 💕",
     date: "2021-01-15"
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1518105570919-e342af1a8275?w=800&q=80",
-    alt: "Beach trip",
-    caption: "Beach Adventures 🏖️",
+    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80",
+    alt: "Beach Sunset",
+    caption: "Sunsets and Soulmates 🌅",
     date: "2021-03-20"
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80",
-    alt: "Anniversary dinner",
-    caption: "6 Months Anniversary 🥂",
+    src: "https://images.unsplash.com/photo-1469371670806-04369f95e727?w=1200&q=80",
+    alt: "Lakeside Picnic",
+    caption: "Picnic by the Lake 🧺",
     date: "2021-07-15"
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80",
-    alt: "Concert night",
-    caption: "Concert Night Together 🎵",
+    src: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a5d8?w=1200&q=80",
+    alt: "Luxury Dinner",
+    caption: "Celebrating Our Growth 🥂",
     date: "2021-09-10"
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80",
-    alt: "Christmas celebration",
-    caption: "First Christmas Together 🎄",
+    src: "https://images.unsplash.com/photo-1518105570919-e342af1a8275?w=1200&q=80",
+    alt: "Art Gallery",
+    caption: "Lost in Art and You 🎨",
     date: "2021-12-25"
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a5d8?w=800&q=80",
-    alt: "New Year",
-    caption: "New Year's Kiss ✨",
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80",
+    alt: "New Year City Lights",
+    caption: "A New Year, A New Chapter ✨",
     date: "2022-01-01"
   },
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80",
-    alt: "Valentine's Day",
-    caption: "Valentine's Day 2022 💝",
-    date: "2022-02-14"
+    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?w=1200&q=80",
+    alt: "Morning Coffee Date",
+    caption: "Những sáng bình yên cùng nhau ☕",
+    date: "2022-03-12"
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd6f?w=800&q=80",
-    alt: "Spring outing",
-    caption: "Spring Picnic 🌸",
-    date: "2022-04-05"
+    src: "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?w=1200&q=80",
+    alt: "Rainy Street Walk",
+    caption: "Đi bộ dưới mưa, tim vẫn nắng ☔",
+    date: "2022-05-21"
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1529634597503-109e96477987?w=800&q=80",
-    alt: "Summer vacation",
-    caption: "Summer Vacation ☀️",
-    date: "2022-06-20"
+    src: "https://images.unsplash.com/photo-1464863979621-258859e62245?w=1200&q=80",
+    alt: "Movie Night",
+    caption: "Buổi tối phim và vòng tay ấm áp 🎬",
+    date: "2022-10-08"
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
-    alt: "1.5 Year anniversary",
-    caption: "1.5 Years of Love 💖",
-    date: "2022-07-15"
+    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80",
+    alt: "Garden Portrait",
+    caption: "Bức ảnh em yêu nhất trong năm 🌿",
+    date: "2023-02-19"
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1469371670806-04369f95e727?w=800&q=80",
-    alt: "Autumn walk",
-    caption: "Autumn Strolls 🍂",
-    date: "2022-10-12"
+    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&q=80",
+    alt: "Road Trip Moment",
+    caption: "Mỗi cung đường đều đáng nhớ 🚗",
+    date: "2023-07-02"
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1518895949257-7621c7454f75?w=800&q=80",
-    alt: "Holiday trip",
-    caption: "Holiday Getaway 🎁",
-    date: "2022-12-20"
-  },
-  {
-    id: 13,
-    src: "https://images.unsplash.com/photo-1543807578-96099da8f272?w=800&q=80",
-    alt: "New Year celebration",
-    caption: "New Year 2023 🎆",
-    date: "2023-01-01"
-  },
-  {
-    id: 14,
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80",
-    alt: "Valentine's 2023",
-    caption: "Valentine's Day 2023 💐",
-    date: "2023-02-14"
-  },
-  {
-    id: 15,
-    src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80",
-    alt: "Spring adventure",
-    caption: "Spring Adventures 🌺",
-    date: "2023-04-18"
-  },
-  {
-    id: 16,
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=800&q=80",
-    alt: "Summer fun",
-    caption: "Summer Fun 🌊",
-    date: "2023-06-25"
-  },
-  {
-    id: 17,
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80",
-    alt: "2.5 Year milestone",
-    caption: "2.5 Years Strong 💞",
-    date: "2023-07-15"
-  },
-  {
-    id: 18,
-    src: "https://images.unsplash.com/photo-1469371670806-04369f95e727?w=800&q=80",
-    alt: "Road trip",
-    caption: "Road Trip Memories 🚗",
-    date: "2023-09-08"
-  },
-  {
-    id: 19,
-    src: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd6f?w=800&q=80",
-    alt: "Winter wonderland",
-    caption: "Winter Wonderland ❄️",
-    date: "2023-12-15"
-  },
-  {
-    id: 20,
-    src: "https://images.unsplash.com/photo-1529634828328-6b5e3b3c6e5e?w=800&q=80",
-    alt: "3 Year anniversary",
-    caption: "3 Years of Eternal Love 💍",
+    src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=80",
+    alt: "Golden Smile",
+    caption: "Nụ cười làm anh muốn dừng thời gian ✨",
     date: "2024-01-15"
   }
 ];
@@ -161,64 +106,72 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 1,
     date: "January 15, 2021",
-    title: "The Day We Met",
-    description: "Fate brought us together on this magical day. Little did I know that my life would change forever.",
-    icon: "💫"
+    title: "The First Gaze",
+    description: "Trong khoảnh khắc giao thoa của định mệnh, đôi mắt chúng ta gặp nhau, và vũ trụ thì thầm rằng đây chính là khởi đầu của một điều vĩnh cửu.",
+    icon: "✨",
+    image: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=1200&q=80"
   },
   {
     id: 2,
     date: "February 14, 2021",
-    title: "First Valentine's",
-    description: "Our first Valentine's Day together - a beautiful beginning to many more celebrations of love.",
-    icon: "💝"
+    title: "Sweet Beginnings",
+    description: "Một ngày Valentine đầu tiên, đơn giản mà ngọt ngào, như nốt nhạc đầu tiên trong bản giao hưởng tình yêu của chúng ta.",
+    icon: "🌹",
+    image: "https://images.unsplash.com/photo-1518199266791-c375402159e5?w=1200&q=80"
   },
   {
     id: 3,
     date: "July 15, 2021",
-    title: "6 Months Together",
-    description: "Half a year of endless laughter, late-night talks, and falling deeper in love.",
-    icon: "🥂"
+    title: "Golden Hour Glow",
+    description: "Sáu tháng của tiếng cười và những giấc mơ được dệt nên. Mỗi hoàng hôn bên em là một kiệt tác của tình yêu.",
+    icon: "🌅",
+    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80"
   },
   {
     id: 4,
-    date: "December 25, 2021",
-    title: "First Christmas",
-    description: "Spending Christmas together was the best gift I could ever ask for.",
-    icon: "🎄"
+    date: "January 15, 2022",
+    title: "One Year of Magic",
+    description: "365 ngày để lựa chọn em. Một năm trôi qua như một giấc mơ đẹp mà chúng ta không bao giờ muốn tỉnh dậy.",
+    icon: "💍",
+    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80"
   },
   {
     id: 5,
-    date: "January 15, 2022",
-    title: "1 Year Anniversary!",
-    description: "One year down, forever to go. Every moment with you has been a beautiful adventure.",
-    icon: "🎉"
+    date: "August 20, 2022",
+    title: "The Great Escape",
+    description: "Du hành khắp thế gian, nhưng em nhận ra rằng điểm đến yêu thích nhất của em vĩnh viễn là anh.",
+    icon: "✈️",
+    image: "https://images.unsplash.com/photo-1469371670806-04369f95e727?w=1200&q=80"
   },
   {
     id: 6,
-    date: "June 20, 2022",
-    title: "Our First Trip",
-    description: "Exploring the world together made us realize that home isn't a place - it's being with each other.",
-    icon: "✈️"
+    date: "January 15, 2024",
+    title: "Three Years & Beyond",
+    description: "Ba năm tình yêu vĩnh cửu. Chúng ta không chỉ cùng nhau trưởng thành, mà còn yêu sâu đậm hơn mỗi ngày.",
+    icon: "💎",
+    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a5d8?w=1200&q=80"
   },
   {
     id: 7,
-    date: "January 15, 2023",
-    title: "2 Years of Love",
-    description: "Two years of growing together, supporting each other, and building something truly special.",
-    icon: "💕"
+    date: "June 03, 2024",
+    title: "Midnight Promises",
+    description: "Một đêm rất dài, chúng ta nói về những ước mơ nhỏ, rồi nhận ra tương lai đẹp nhất là tương lai có nhau.",
+    icon: "🌙",
+    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&q=80"
   },
   {
     id: 8,
-    date: "January 15, 2024",
-    title: "3 Years & Forever",
-    description: "Three incredible years have passed, and my love for you grows stronger with each passing day. Here's to forever!",
-    icon: "💍"
+    date: "January 15, 2025",
+    title: "Still Choosing You",
+    description: "Không phải một lần, mà là mỗi ngày. Em vẫn chọn anh giữa hàng ngàn điều ngẫu nhiên của cuộc sống.",
+    icon: "🕊️",
+    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80"
   }
 ];
 
 export const coupleInfo = {
-  name1: "Your Name",
-  name2: "Partner's Name",
+  name1: "Alexander",
+  name2: "Isabella",
   anniversaryDate: "2021-01-15",
-  message: "Three years ago, you walked into my life and made everything more beautiful. Every laugh we've shared, every tear we've wiped away, every moment we've created together has been a gift. Thank you for being my person, my partner in crime, my best friend. Here's to us and to forever. I love you more than words could ever express. 💕"
+  message: "Ba năm trước, anh bước vào cuộc đời em và biến mọi thứ trở nên đẹp đẽ hơn. Mỗi tiếng cười chúng ta sẻ chia, mỗi giọt nước mắt chúng ta lau khô, mỗi khoảnh khắc chúng ta tạo ra cùng nhau đều là một món quà. Cảm ơn anh vì đã là người của em, người bạn đồng hành trong mọi cuộc phiêu lưu, người bạn thân nhất của em. Chúc mừng tình yêu của chúng ta và mãi mãi về sau. Em yêu anh nhiều hơn mọi lời nói có thể diễn tả. Với mỗi ngày trôi qua, câu chuyện của chúng ta ngày càng sâu sắc và huyền bí hơn." // Added a more mysterious ending
 };

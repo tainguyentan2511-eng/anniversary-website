@@ -1,64 +1,52 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-
-interface FloatingHeart {
-  id: number;
-  x: number;
-  size: number;
-  duration: number;
-  delay: number;
-  emoji: string;
-}
-
-const heartEmojis = ['❤️', '💕', '💖', '💗', '💝', '💓', '💞', '♥️'];
+import { useEffect, useState } from 'react';
 
 export default function FloatingHearts() {
-  const [hearts, setHearts] = useState<FloatingHeart[]>([]);
+  const [particles, setParticles] = useState<{ id: number; x: number; y: number; size: number; duration: number; delay: number }[]>([]);
 
   useEffect(() => {
-    const newHearts: FloatingHeart[] = Array.from({ length: 15 }, (_, i) => ({
+    const newParticles = Array.from({ length: 40 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
-      size: 16 + Math.random() * 24,
-      duration: 10 + Math.random() * 10,
-      delay: Math.random() * 10,
-      emoji: heartEmojis[Math.floor(Math.random() * heartEmojis.length)],
+      y: Math.random() * 100,
+      size: Math.random() * 4 + 1,
+      duration: Math.random() * 20 + 10,
+      delay: Math.random() * 5,
     }));
-    setHearts(newHearts);
+    setParticles(newParticles);
   }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {hearts.map((heart) => (
+      {particles.map((p) => (
         <motion.div
-          key={heart.id}
-          className="absolute bottom-0"
+          key={p.id}
+          className="absolute rounded-full bg-rose-gold/20 backdrop-blur-sm"
           style={{
-            left: `${heart.x}%`,
-            fontSize: `${heart.size}px`,
-          }}
-          initial={{
-            y: '100vh',
-            opacity: 0,
-            rotate: 0,
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            width: p.size,
+            height: p.size,
           }}
           animate={{
-            y: '-100vh',
-            opacity: [0, 1, 1, 0],
-            rotate: 360,
+            y: [0, -100, 0],
+            x: [0, Math.random() * 50 - 25, 0],
+            opacity: [0, 0.5, 0],
+            scale: [1, 1.5, 1],
           }}
           transition={{
-            duration: heart.duration,
+            duration: p.duration,
             repeat: Infinity,
-            delay: heart.delay,
-            ease: 'linear',
+            delay: p.delay,
+            ease: "easeInOut",
           }}
-        >
-          {heart.emoji}
-        </motion.div>
+        />
       ))}
+      
+      {/* Subtle vignettes */}
+      <div className="absolute inset-0 bg-radial-vignette" />
     </div>
   );
 }

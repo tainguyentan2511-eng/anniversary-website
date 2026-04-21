@@ -4,7 +4,12 @@ import { motion } from 'framer-motion';
 import { coupleInfo } from '@/data/memories';
 
 export default function Footer() {
-  const yearsTogether = new Date().getFullYear() - new Date(coupleInfo.anniversaryDate).getFullYear();
+  const today = new Date();
+  const start = new Date(coupleInfo.anniversaryDate);
+  const hasPassedThisYear =
+    today.getMonth() > start.getMonth() ||
+    (today.getMonth() === start.getMonth() && today.getDate() >= start.getDate());
+  const yearsTogether = today.getFullYear() - start.getFullYear() - (hasPassedThisYear ? 0 : 1);
 
   return (
     <footer className="py-12 px-4 bg-gradient-to-b from-blush to-pink-100">

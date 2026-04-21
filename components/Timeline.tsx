@@ -1,83 +1,99 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { timelineEvents } from '@/data/memories';
 
 export default function Timeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
-
   return (
-    <section id="timeline" className="py-20 px-4 bg-gradient-to-b from-blush to-white relative">
-      <div className="max-w-5xl mx-auto">
-        {/* Section title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-5xl md:text-6xl font-elegant font-bold text-rose-gold mb-4">
-            Our Love Story
-          </h2>
-          <p className="text-xl text-gray-600 font-elegant">
-            A journey through our most precious moments
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-rose-gold to-transparent mx-auto mt-6" />
-        </motion.div>
+    <section id="timeline" className="py-32 px-6 bg-luxury-cream overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-32 text-center">
+          <motion.span 
+            className="text-[10px] uppercase tracking-[0.5em] text-luxury-black/40 font-sans block mb-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            Our Chapter
+          </motion.span>
+          <motion.h2 
+            className="text-5xl md:text-7xl font-elegant text-luxury-black mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+          >
+            Moments in <span className="italic">Time</span>
+          </motion.h2>
+          <motion.div 
+            className="w-16 h-[1px] bg-luxury-black/20 mx-auto"
+            initial={{ width: 0 }}
+            whileInView={{ width: 64 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
+        </div>
 
-        {/* Timeline */}
-        <div ref={containerRef} className="relative">
-          {/* Center line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-soft-pink via-rose-gold to-soft-pink hidden md:block" />
+        {/* Artistic Timeline */}
+        <div className="relative">
+          {/* Vertical Center Line (Subtle) */}
+          <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-[1px] bg-luxury-black/5" />
 
-          {/* Timeline events */}
-          <div className="space-y-12 md:space-y-0">
+          <div className="space-y-40">
             {timelineEvents.map((event, index) => {
-              const isLeft = index % 2 === 0;
+              const isEven = index % 2 === 0;
               
               return (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className={`relative md:w-1/2 ${isLeft ? 'md:pr-12 md:ml-auto md:text-right' : 'md:pl-12'} px-4`}
-                  style={{
-                    marginBottom: '3rem',
-                  }}
-                >
-                  {/* Center dot */}
-                  <div className={`absolute top-6 ${isLeft ? 'md:right-0 md:-mr-3' : 'md:left-0 md:-ml-3'} w-6 h-6 bg-rose-gold rounded-full border-4 border-white shadow-lg z-10 hidden md:block`} />
+                <div key={event.id} className="relative flex flex-col md:flex-row items-center group">
+                  {/* Date Circle */}
+                  <div className="absolute left-[20px] md:left-1/2 top-0 -translate-x-1/2 w-3 h-3 rounded-full bg-luxury-cream border border-rose-gold z-10 group-hover:scale-[2] transition-transform duration-500" />
 
-                  {/* Card */}
+                  {/* Image Container */}
                   <motion.div
-                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
-                    whileHover={{ y: -5 }}
+                    initial={{ opacity: 0, x: isEven ? -80 : 80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 1.2, ease: [0.215, 0.61, 0.355, 1] }}
+                    className={`w-full md:w-1/2 relative aspect-[4/3] overflow-hidden ${isEven ? 'md:pr-24' : 'md:order-last md:pl-24'}`}
                   >
-                    {/* Date badge */}
-                    <div className={`inline-block px-4 py-2 bg-gradient-to-r from-pink-100 to-rose-100 rounded-full mb-4 ${isLeft ? 'md:float-right' : ''}`}>
-                      <span className="text-rose-gold font-elegant font-semibold text-sm">
-                        {event.date}
-                      </span>
-                    </div>
-
-                    {/* Icon */}
-                    <div className={`text-4xl mb-4 ${isLeft ? 'md:float-right md:ml-4' : 'md:float-left md:mr-4'}`}>
-                      {event.icon}
-                    </div>
-
-                    {/* Content */}
-                    <h3 className="text-2xl font-elegant font-bold text-gray-800 mb-3 mt-8">
-                      {event.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {event.description}
-                    </p>
+                    <div className="absolute inset-0 border border-luxury-black/5 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-700" />
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000 scale-110 hover:scale-100"
+                    />
                   </motion.div>
-                </motion.div>
+
+                  {/* Content Container */}
+                  <div className={`w-full md:w-1/2 ${isEven ? 'md:text-right md:pl-24' : 'md:text-left md:pr-24'}`}>
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? 80 : -80 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ duration: 1.2, ease: [0.215, 0.61, 0.355, 1] }}
+                      className="space-y-6 pt-12 md:pt-0"
+                    >
+                      <div className="space-y-2">
+                        <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold font-semibold">
+                          {event.date}
+                        </span>
+                        <h3 className="text-3xl md:text-4xl font-elegant text-luxury-black group-hover:italic transition-all duration-500">
+                          {event.title}
+                        </h3>
+                      </div>
+                      
+                      <div className={`flex items-center gap-4 ${isEven ? 'md:flex-row-reverse md:justify-end' : ''}`}>
+                        <span className="text-3xl grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-125">
+                          {event.icon}
+                        </span>
+                        <p className="text-luxury-black/60 font-sans leading-relaxed text-lg max-w-md">
+                          {event.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
               );
             })}
           </div>

@@ -29,15 +29,29 @@ export default function MusicPlayer() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
   const togglePlay = async () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
-      } else {
-        await audioRef.current.play();
+        setIsPlaying(false);
+        setShowPrompt(false);
+        return;
       }
-      setIsPlaying(!isPlaying);
-      setShowPrompt(false);
+
+      try {
+        await audioRef.current.play();
+        setIsPlaying(true);
+        setShowPrompt(false);
+      } catch (error) {
+        setIsPlaying(false);
+        setShowPrompt(true);
+      }
     }
   };
 

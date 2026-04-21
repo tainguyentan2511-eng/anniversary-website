@@ -51,8 +51,13 @@ export default function Countdown() {
     return () => clearInterval(timer);
   }, []);
 
-  // Calculate years together
-  const yearsTogether = new Date().getFullYear() - new Date(coupleInfo.anniversaryDate).getFullYear();
+  // Calendar-accurate "years together" to avoid off-by-one before anniversary day.
+  const today = new Date();
+  const start = new Date(coupleInfo.anniversaryDate);
+  const hasPassedThisYear =
+    today.getMonth() > start.getMonth() ||
+    (today.getMonth() === start.getMonth() && today.getDate() >= start.getDate());
+  const yearsTogether = today.getFullYear() - start.getFullYear() - (hasPassedThisYear ? 0 : 1);
 
   const timeUnits = [
     { label: 'Years', value: timeLeft.years, icon: '💕' },

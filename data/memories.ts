@@ -117,7 +117,7 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Sweet Beginnings",
     description: "Một ngày Valentine đầu tiên, đơn giản mà ngọt ngào, như nốt nhạc đầu tiên trong bản giao hưởng tình yêu của chúng ta.",
     icon: "🌹",
-    image: "https://images.unsplash.com/photo-1518199266791-c375402159e5?w=1200&q=80"
+    image: "/Image/2024/ValentineFirst.JPG"
   },
   {
     id: 3,
@@ -125,7 +125,7 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Golden Hour Glow",
     description: "Sáu tháng của tiếng cười và những giấc mơ được dệt nên. Mỗi hoàng hôn bên em là một kiệt tác của tình yêu.",
     icon: "🌅",
-    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80"
+    image: "/Image/2024/AFterSixMonth.JPG"
   },
   {
     id: 4,
@@ -133,15 +133,15 @@ export const timelineEvents: TimelineEvent[] = [
     title: "One Year of Magic",
     description: "365 ngày để lựa chọn em. Một năm trôi qua như một giấc mơ đẹp mà chúng ta không bao giờ muốn tỉnh dậy.",
     icon: "💍",
-    image: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80"
+    image: "/Image/2024/1year.jpg"
   },
   {
     id: 5,
     date: "August 20, 2022",
     title: "The Great Escape",
-    description: "Du hành khắp thế gian, nhưng em nhận ra rằng điểm đến yêu thích nhất của em vĩnh viễn là anh.",
+    description: "Du hành khắp thế gian, nhưng anh nhận ra rằng điểm đến yêu thích nhất của anh vĩnh viễn là em.",
     icon: "✈️",
-    image: "https://images.unsplash.com/photo-1469371670806-04369f95e727?w=1200&q=80"
+    image: "/Image/2024/Om.JPG"
   },
   {
     id: 6,
@@ -149,7 +149,7 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Three Years & Beyond",
     description: "Ba năm tình yêu vĩnh cửu. Chúng ta không chỉ cùng nhau trưởng thành, mà còn yêu sâu đậm hơn mỗi ngày.",
     icon: "💎",
-    image: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a5d8?w=1200&q=80"
+    image: "/Image/2025/IMG_6415.JPG"
   },
   {
     id: 7,
@@ -157,7 +157,7 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Midnight Promises",
     description: "Một đêm rất dài, chúng ta nói về những ước mơ nhỏ, rồi nhận ra tương lai đẹp nhất là tương lai có nhau.",
     icon: "🌙",
-    image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=1200&q=80"
+    image: "/Image/2026/timeline5.jpg"
   },
   {
     id: 8,
@@ -165,13 +165,13 @@ export const timelineEvents: TimelineEvent[] = [
     title: "Still Choosing You",
     description: "Không phải một lần, mà là mỗi ngày. Em vẫn chọn anh giữa hàng ngàn điều ngẫu nhiên của cuộc sống.",
     icon: "🕊️",
-    image: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200&q=80"
+    image: "/Image/2026/timeline6.jpg"
   }
 ];
 
 export const coupleInfo = {
-  name1: "Alexander",
-  name2: "Isabella",
-  anniversaryDate: "2021-01-15",
+  name1: "TAN TAI",
+  name2: "HA VY",
+  anniversaryDate: "2024-04-28",
   message: "Ba năm trước, anh bước vào cuộc đời em và biến mọi thứ trở nên đẹp đẽ hơn. Mỗi tiếng cười chúng ta sẻ chia, mỗi giọt nước mắt chúng ta lau khô, mỗi khoảnh khắc chúng ta tạo ra cùng nhau đều là một món quà. Cảm ơn anh vì đã là người của em, người bạn đồng hành trong mọi cuộc phiêu lưu, người bạn thân nhất của em. Chúc mừng tình yêu của chúng ta và mãi mãi về sau. Em yêu anh nhiều hơn mọi lời nói có thể diễn tả. Với mỗi ngày trôi qua, câu chuyện của chúng ta ngày càng sâu sắc và huyền bí hơn." // Added a more mysterious ending
 };

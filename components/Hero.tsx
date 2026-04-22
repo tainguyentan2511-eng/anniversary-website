@@ -57,19 +57,55 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1 }}
           >
             <div className="h-[1px] w-24 bg-luxury-black/10" />
-            <p className="text-luxury-black/60 font-sans tracking-wide">
-              {coupleInfo.name1} + {coupleInfo.name2}
-            </p>
+            <motion.div
+              className="pt-12 flex flex-col gap-4"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+              {/* Line luxury */}
+              {/* <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-rose-gold/50 to-transparent" /> */}
+              <motion.div
+                className="h-[1px] w-24 bg-gradient-to-r from-transparent via-rose-gold/50 to-transparent"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+              />
+              {/* Names highlight */}
+              <h3 className="text-2xl md:text-3xl font-elegant text-luxury-black tracking-wide leading-relaxed">
+                <span className="relative">
+                  <span className="bg-gradient-to-r from-rose-gold via-yellow-300 to-rose-gold bg-clip-text text-transparent font-semibold">
+                    {coupleInfo.name1}
+                  </span>
+                </span>
+
+                <span className="mx-3 text-luxury-black/40 font-light">♥</span>
+
+                <span className="relative">
+                  <span className="bg-gradient-to-r from-rose-gold via-yellow-300 to-rose-gold bg-clip-text text-transparent font-semibold">
+                    {coupleInfo.name2}
+                  </span>
+                </span>
+              </h3>
+
+              {/* Sub text */}
+              <p className="text-luxury-black/50 text-sm tracking-[0.2em] uppercase">
+                A love written in time
+              </p>
+            </motion.div>
           </motion.div>
 
-          <motion.p
-            className="text-luxury-black/60 max-w-md leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-          >
-            Dem nay co mot mat ma nho dang cho em mo khoa. Neu em tim ra, toan bo khu vuon ky niem se hien ra.
-          </motion.p>
+        <motion.p
+          className="text-luxury-black/60 max-w-md leading-relaxed italic tracking-wide"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 1 }}
+        >
+          Có những khoảnh khắc tưởng chừng đã trôi qua,
+          <br />
+          nhưng thực ra vẫn luôn ở đây -
+          <span className="text-rose-gold"> chờ em chạm vào.</span>
+        </motion.p>
         </div>
 
         {/* Right Side: Cinematic Image with Reveal */}
@@ -79,17 +115,29 @@ export default function Hero() {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 1.5, ease: [0.215, 0.61, 0.355, 1] }}
         >
-          <div className="absolute inset-0 border border-luxury-black/5 translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition-transform duration-700" />
-          <div className="w-full h-full overflow-hidden">
-            <motion.div
-              className="w-full h-full bg-cover bg-center grayscale-[30%] hover:grayscale-0 transition-all duration-1000 scale-110 hover:scale-100"
-              style={{ backgroundImage: `url('https://images.unsplash.com/photo-1596200227187-5f106d3e34b9?w=1200&q=80')` }}
-            />
+          {/* Glow nền */}
+          <div className="absolute -inset-4 bg-gradient-to-tr from-rose-gold/20 via-transparent to-luxury-black/10 blur-2xl opacity-60 group-hover:opacity-80 transition duration-700" />
+
+          {/* Frame ngoài */}
+          <div className="relative w-full h-full rounded-2xl p-[2px] bg-gradient-to-br from-white/40 via-white/10 to-transparent shadow-2xl">
+            
+            {/* Frame trong */}
+            <div className="w-full h-full rounded-2xl overflow-hidden">
+              <motion.div
+                className="w-full h-full bg-cover bg-center grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
+                style={{ backgroundImage: "url('Image/2024/BackGround.JPG')" }}
+              />
+              
+              {/* Overlay gradient nhẹ */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
+            </div>
           </div>
-          
-          {/* Overlay Tag */}
-          <div className="absolute bottom-10 -left-10 bg-white/80 backdrop-blur-md p-6 shadow-2xl">
-            <p className="text-luxury-black font-elegant italic text-xl">Est. {coupleInfo.anniversaryDate.substring(0, 4)}</p>
+
+          {/* Overlay Tag (fix lại cho đẹp hơn) */}
+          <div className="absolute bottom-6 left-6 bg-white/70 backdrop-blur-lg px-5 py-3 rounded-xl shadow-xl border border-white/20">
+            <p className="text-luxury-black font-elegant italic text-lg tracking-wide">
+              Est. {coupleInfo.anniversaryDate.substring(0, 4)}
+            </p>
           </div>
         </motion.div>
       </div>

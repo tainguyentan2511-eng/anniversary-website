@@ -70,7 +70,7 @@ export default function MusicPlayer() {
       </audio>
 
       {/* Autoplay prompt overlay */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {showPrompt && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -108,7 +108,7 @@ export default function MusicPlayer() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       {/* Music player control */}
       <motion.div

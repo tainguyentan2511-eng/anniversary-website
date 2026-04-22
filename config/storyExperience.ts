@@ -1,0 +1,32 @@
+export const STORY_EXPERIENCE_CONFIG = {
+  STORAGE_KEYS: {
+    SOUND_FX: 'anniversary.soundFxEnabled',
+    BPM: 'anniversary.journeyBpm',
+  },
+  BPM: {
+    MIN: 58,
+    MAX: 92,
+    DEFAULT: 72,
+  },
+  FX_VOLUME: {
+    DESKTOP: 0.022,
+    MOBILE: 0.013,
+  },
+  TIMING: {
+    SLIDE_AUTOPLAY_MS: 3800,
+    FINAL_STAGE_1_DELAY_MS: 500,
+    FINAL_STAGE_2_DELAY_MS: 2500,
+    FINAL_STAGE_3_DELAY_MS: 4800,
+    TYPEWRITER_MS: 45,
+    AUTO_NEXT_YEAR_DELAY_MS: 7000,
+    TONE_CLICK_DURATION_S: 0.07,
+    TONE_TRANSITION_DURATION_S: 0.1,
+    TONE_ATTACK_S: 0.02,
+    MIN_BEAT_INTERVAL_MS: 350,
+  },
+  TONE: {
+    CLICK_HZ: 520,
+    TRANSITION_HZ: 360,
+  },
+} as const;
+

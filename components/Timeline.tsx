@@ -1,9 +1,25 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { timelineEvents } from '@/data/memories';
 
-export default function Timeline() {
+interface TimelineProps {
+  onFirstInteraction?: () => void;
+}
+
+export default function Timeline({ onFirstInteraction }: TimelineProps) {
+  const [activeEventId, setActiveEventId] = useState<number | null>(timelineEvents[0]?.id ?? null);
+  const [didInteract, setDidInteract] = useState(false);
+
+  const handleActivate = (id: number) => {
+    setActiveEventId(id);
+    if (!didInteract) {
+      setDidInteract(true);
+      onFirstInteraction?.();
+    }
+  };
+
   return (
     <section id="timeline" className="py-32 px-6 bg-luxury-cream overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -26,8 +42,11 @@ export default function Timeline() {
           >
             Moments in <span className="italic">Time</span>
           </motion.h2>
+          <p className="text-luxury-black/60 max-w-xl mx-auto">
+            Cham vao tung khoanh khac de mo loi ke. Moi lan cham la mot lan ky niem song day.
+          </p>
           <motion.div 
-            className="w-16 h-[1px] bg-luxury-black/20 mx-auto"
+            className="w-16 h-[1px] bg-luxury-black/20 mx-auto mt-8"
             initial={{ width: 0 }}
             whileInView={{ width: 64 }}
             viewport={{ once: true }}
@@ -43,6 +62,7 @@ export default function Timeline() {
           <div className="space-y-40">
             {timelineEvents.map((event, index) => {
               const isEven = index % 2 === 0;
+              const isActive = activeEventId === event.id;
               
               return (
                 <div key={event.id} className="relative flex flex-col md:flex-row items-center group">
@@ -61,7 +81,7 @@ export default function Timeline() {
                     <img
                       src={event.image}
                       alt={event.title}
-                      className="w-full h-full object-cover grayscale-[30%] hover:grayscale-0 transition-all duration-1000 scale-110 hover:scale-100"
+                      className={`w-full h-full object-cover transition-all duration-1000 scale-110 ${isActive ? 'grayscale-0 blur-0 scale-100' : 'grayscale blur-[2px]'}`}
                     />
                   </motion.div>
 
@@ -78,18 +98,29 @@ export default function Timeline() {
                         <span className="text-[10px] uppercase tracking-[0.3em] text-rose-gold font-semibold">
                           {event.date}
                         </span>
-                        <h3 className="text-3xl md:text-4xl font-elegant text-luxury-black group-hover:italic transition-all duration-500">
-                          {event.title}
-                        </h3>
+                        <button
+                          type="button"
+                          onClick={() => handleActivate(event.id)}
+                          className="text-left md:text-inherit"
+                        >
+                          <h3 className="text-3xl md:text-4xl font-elegant text-luxury-black group-hover:italic transition-all duration-500 underline-offset-8 hover:underline">
+                            {event.title}
+                          </h3>
+                        </button>
                       </div>
                       
                       <div className={`flex items-center gap-4 ${isEven ? 'md:flex-row-reverse md:justify-end' : ''}`}>
                         <span className="text-3xl grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-125">
                           {event.icon}
                         </span>
-                        <p className="text-luxury-black/60 font-sans leading-relaxed text-lg max-w-md">
-                          {event.description}
-                        </p>
+                        <motion.p
+                          key={isActive ? `${event.id}-active` : `${event.id}-inactive`}
+                          initial={{ opacity: 0.4, y: 10 }}
+                          animate={{ opacity: isActive ? 1 : 0.35, y: 0 }}
+                          className={`font-sans leading-relaxed text-lg max-w-md ${isActive ? 'text-luxury-black/80' : 'text-luxury-black/40'}`}
+                        >
+                          {isActive ? event.description : 'Tap de mo noi dung ky niem nay.'}
+                        </motion.p>
                       </div>
                     </motion.div>
                   </div>

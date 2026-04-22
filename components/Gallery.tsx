@@ -11,6 +11,10 @@ interface LightboxProps {
   onNext: () => void;
 }
 
+interface GalleryProps {
+  onMilestoneUnlock?: () => void;
+}
+
 function Lightbox({ photo, onClose, onPrev, onNext }: LightboxProps) {
   if (!photo) return null;
 
@@ -45,7 +49,7 @@ function Lightbox({ photo, onClose, onPrev, onNext }: LightboxProps) {
   );
 }
 
-export default function Gallery() {
+export default function Gallery({ onMilestoneUnlock }: GalleryProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
   const [revealedPhotos, setRevealedPhotos] = useState<Set<number>>(new Set());
   const [milestoneSurprise, setMilestoneSurprise] = useState(false);
@@ -57,6 +61,7 @@ export default function Gallery() {
         const next = new Set(prev).add(photo.id);
         if (next.size === 4) {
           setMilestoneSurprise(true);
+          onMilestoneUnlock?.();
         }
         return next;
       });

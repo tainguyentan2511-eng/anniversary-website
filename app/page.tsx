@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <main className="relative">
       {!introFinished && <IntroScreen onFinish={handleIntroFinish} />}
-
+      <MusicPlayer />
       {introFinished && (
         <>
           <FloatingHearts />
@@ -84,7 +84,6 @@ export default function Home() {
           )}
           <EmotionalInterlude show={interludeOpen} onContinue={() => setInterludeOpen(false)} />
           <FinalSurprise show={finalUnlocked} onClose={() => setFinalUnlocked(false)} />
-          <MusicPlayer />
         </>
       )}
     </main>

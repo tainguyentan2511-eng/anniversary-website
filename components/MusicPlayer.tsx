@@ -66,7 +66,7 @@ export default function MusicPlayer() {
   return (
     <>
       <audio ref={audioRef} loop>
-        <source src="/music.mp3" type="audio/mpeg" />
+        <source src="/music/Perfect.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Autoplay prompt overlay */}

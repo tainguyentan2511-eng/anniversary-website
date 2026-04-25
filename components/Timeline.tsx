@@ -47,7 +47,7 @@ export default function Timeline({ onFirstInteraction }: TimelineProps) {
             Moments in <span className="italic">Time</span>
           </motion.h2>
 
-          <p className="text-luxury-black/60 max-w-xl mx-auto">
+          <p className="text-justify leading-relaxed text-luxury-black/60 max-w-xl mx-auto">
             Chạm vào từng khoảnh khắc để mở lời kể.  
             Mỗi lần chạm là một lần ký ức sống dậy.
           </p>
@@ -148,18 +148,26 @@ export default function Timeline({ onFirstInteraction }: TimelineProps) {
                         <span className="text-3xl transition transform group-hover:scale-125">
                           {event.icon}
                         </span>
-
-                        <motion.p
-                          key={isActive ? 'active' : 'inactive'}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: isActive ? 1 : 0.3, y: 0 }}
-                          transition={{ duration: 0.6 }}
-                          className="text-lg max-w-md leading-relaxed"
-                        >
-                          {isActive
-                            ? event.description
-                            : 'Chạm để mở ký ức này.'}
-                        </motion.p>
+                          <motion.p
+                            key={isActive ? 'active' : 'inactive'}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: isActive ? 1 : 0.4, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="
+                              text-lg
+                              max-w-xl
+                              mx-auto
+                              leading-relaxed
+                              text-center
+                              px-4
+                              md:px-0
+                              tracking-wide
+                            "
+                          >
+                            {isActive
+                              ? event.description
+                              : 'Chạm để mở ký ức này.'}
+                          </motion.p>
                       </div>
                     </motion.div>
                   </div>

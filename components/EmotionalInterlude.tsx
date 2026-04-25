@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 interface EmotionalInterludeProps {
@@ -9,18 +9,16 @@ interface EmotionalInterludeProps {
 }
 
 export default function EmotionalInterlude({ show, onContinue }: EmotionalInterludeProps) {
-  const [seconds, setSeconds] = useState(5);
 
   useEffect(() => {
     if (!show) return;
 
-    setSeconds(0.5);
-    const timer = setInterval(() => {
-      setSeconds((prev) => (prev > 0 ? prev - 1 : 0));
-    }, 1000);
+    const timer = setTimeout(() => {
+      onContinue(); // 👉 auto chuyển
+    }, 900); // 0.9s là đẹp
 
-    return () => clearInterval(timer);
-  }, [show]);
+    return () => clearTimeout(timer);
+  }, [show, onContinue]);
 
   return (
     <AnimatePresence>
@@ -29,31 +27,23 @@ export default function EmotionalInterlude({ show, onContinue }: EmotionalInterl
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[115] bg-luxury-black/90 backdrop-blur-xl flex items-center justify-center p-6"
+          className="fixed inset-0 z-[115] bg-luxury-black/80 backdrop-blur-md flex items-center justify-center"
         >
+          {/* Text nhẹ, không ép */}
           <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            className="max-w-xl text-center"
+            initial={{ scale: 0.96, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.98, opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center px-6"
           >
-            <p className="text-luxury-cream/50 uppercase tracking-[0.4em] text-xs mb-6">Breathing Space</p>
-            <h3 className="text-4xl md:text-5xl font-elegant text-luxury-cream mb-5">
-              Nham mat 5 giay nhe...
-            </h3>
-            <p className="text-luxury-cream/70 leading-relaxed mb-8">
-              De nhac nhe troi qua, va de tim em cham hon mot nhip. Ky niem sap bat dau.
+            <p className="text-luxury-cream/50 uppercase tracking-[0.4em] text-xs mb-4">
+              A Moment
             </p>
 
-            <div className="text-6xl font-elegant text-rose-gold mb-8">{seconds}</div>
-
-            <button
-              type="button"
-              disabled={seconds > 0}
-              onClick={onContinue}
-              className="px-7 py-3 rounded-full border border-luxury-cream/30 text-luxury-cream disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white/10 transition-colors"
-            >
-              {seconds > 0 ? 'Wait...' : 'Continue'}
-            </button>
+            <h3 className="text-3xl md:text-4xl font-elegant text-luxury-cream">
+              Ký ức đang mở ra...
+            </h3>
           </motion.div>
         </motion.div>
       )}

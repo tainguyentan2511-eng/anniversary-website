@@ -71,7 +71,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="italic text-gray-600 max-w-xl mx-auto mb-8 text-lg"
         >
-          "Whatever our souls are made of, his and mine are the same."
+          "Whatever our souls are made of, her and mine are the same."
           <footer className="text-sm mt-2 text-gray-500">— Emily Brontë</footer>
         </motion.blockquote>
 
